@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/task_nav"
+    app:startDestination="@id/bugDetailFragment">
+    <fragment
+        android:id="@id/taskListing"
+        android:name="com.avinash.projectmultinav.TasksListingFragment"
+        android:label="tasks_listing_fragment"
+        tools:layout="@layout/tasks_listing_fragment"></fragment>
+    <fragment
+        android:id="@id/taskDetail"
+        android:name="com.avinash.projectmultinav.TaskDetailsFragment"
+        android:label="task_details_fragment"
+        tools:layout="@layout/task_details_fragment" />
+    <action
+        android:id="@+id/action_global_taskDetailsFragment"
+        app:destination="@id/taskDetail" />
+    <fragment
+        android:id="@id/bugListing"
+        android:name="com.avinash.projectmultinav.BugListingFragment"
+        android:label="bug_listing_fragment"
+        tools:layout="@layout/bug_listing_fragment" />
+    <fragment
+        android:id="@+id/bugDetailFragment"
+        android:name="com.avinash.projectmultinav.BugDetailFragment"
+        android:label="bug_detail_fragment"
+        tools:layout="@layout/bug_detail_fragment" />
+    <action
+        android:id="@+id/action_global_bugDetailFragment"
+        app:destination="@id/bugDetailFragment" />
+</navigation>

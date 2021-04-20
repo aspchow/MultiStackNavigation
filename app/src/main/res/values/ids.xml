@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="taskListing" type="id"/>
+    <item name="taskDetail" type="id"/>
+    <item name="bugListing" type="id"/>
+    <item name="bugDetail" type="id"/>
+
+</resources>
+
+

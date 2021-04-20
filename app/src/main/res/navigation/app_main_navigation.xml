@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_main_navigation"
+    app:startDestination="@id/signInFragment">
+
+    <fragment
+        android:id="@+id/downLoadFragment"
+        android:name="com.avinash.projectmultinav.fragments.precontent.DownloadDataFragment"
+        android:label="welccome_fragment"
+        tools:layout="@layout/download_data_fragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_appContentFragment"
+            app:destination="@id/appContentFragment"
+            app:popUpTo="@id/downLoadFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.avinash.projectmultinav.fragments.precontent.SignInFragment"
+        android:label="sign_in_fragment"
+        tools:layout="@layout/sign_in_fragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_welcomeFragment"
+            app:destination="@id/downLoadFragment"
+            app:popUpTo="@id/signInFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signInFragment_to_appContentFragment"
+            app:destination="@id/appContentFragment"
+            app:popUpTo="@id/signInFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/appContentFragment"
+        android:name="com.avinash.projectmultinav.fragments.AppContentFragment"
+        android:label="app_content_fragment"
+        tools:layout="@layout/app_content_fragment" />
+</navigation>
