@@ -18,8 +18,8 @@ class SignInFragment : Fragment() {
     private val appViewModel by activityViewModels<AppViewModel>()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
 
 

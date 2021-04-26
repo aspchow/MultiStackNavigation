@@ -99,7 +99,7 @@ class NavigationManager {
     }
 
 
-    fun navigateToDefaultFragmement() {
+    private fun navigateToDefaultFragmement() {
         val menuItem = bottomNavigationView.menu[0]
         handleTabClick(menuItem.itemId)
         toolbar?.changeToolBarValuesWith(menuItem)
