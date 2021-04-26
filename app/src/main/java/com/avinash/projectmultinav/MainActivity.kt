@@ -1,5 +1,7 @@
 package com.avinash.projectmultinav
 
+import android.annotation.SuppressLint
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         )
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,32 +39,41 @@ class MainActivity : AppCompatActivity() {
             setContentView(root)
 
 
+
             bottomNavigationView.menu.apply {
                 add(1, R.id.taskListing, 1, "Tasks").apply {
-                    icon = resources.getDrawable(R.drawable.ic_launcher_background)
+                    icon = resources.getDrawable(R.drawable.tasks)
                 }
 
                 add(1, R.id.bugListing, 1, "Bugs").apply {
-                    icon = resources.getDrawable(R.drawable.ic_launcher_background)
+                    icon = resources.getDrawable(R.drawable.bugs)
                 }
 
             }
 
 
-            viewModel.isContentFragmentOpened.observe(this@MainActivity, {
-                val visibility = if (it) {
-                    val uri = intent.data
-                    Toast.makeText(applicationContext, "the uri is $uri", Toast.LENGTH_SHORT).show()
+            viewModel {
 
-                    viewModel.navManager.startNavigation(
-                            supportFragmentManager,
-                            bottomNavigationView
-                    )
-                    View.VISIBLE
-                } else View.GONE
-                toolbar.visibility = visibility
-                bottomNavigationView.visibility = visibility
-            })
+                isContentFragmentOpened.observe(this@MainActivity) {
+                    val visibility = if (it) {
+
+
+                        //Toast.makeText(applicationContext, "the uri is $uri", Toast.LENGTH_SHORT).show()
+
+                        navManager.startNavigation(
+                                supportFragmentManager,
+                                bottomNavigationView,
+                                intent.data,
+                                toolbar
+                        )
+                        View.VISIBLE
+                    } else View.GONE
+                    toolbar.visibility = visibility
+                    bottomNavigationView.visibility = visibility
+                }
+
+            }
+
 
         }
     }
@@ -72,11 +84,6 @@ class MainActivity : AppCompatActivity() {
             super.onBackPressed()
     }
 
-}
-
-
-fun MainActivity.addActivityManager() {
-    //NavigationManager(bining.bottomNavigationView)
 }
 
 
