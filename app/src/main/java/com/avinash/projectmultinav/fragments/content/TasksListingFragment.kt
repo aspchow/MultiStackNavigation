@@ -68,7 +68,7 @@ class TaskListingAdapter(val itemClickListener: (it : Int) -> Unit) : ListAdapte
     }
 
     override fun onBindViewHolder(holder: ModuleListViewHolder, position: Int) {
-        printMsg("Inside the ")
+
         val task = getItem(position)
         holder.binding.apply {
             root.setOnClickListener {

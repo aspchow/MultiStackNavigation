@@ -109,7 +109,7 @@ class NavigationManager {
     fun startNavigation(fm: FragmentManager, bottomNavigationView: BottomNavigationView, uri: Uri? = null, toolbar: Toolbar? = null) {
 
 
-        printMsg("The uri is ${uri.toString()}")
+        printMsg("The uri is ${uri.toString()} and ${tabHistory.size}")
         this.bottomNavigationView = bottomNavigationView
         this.toolbar = toolbar
 

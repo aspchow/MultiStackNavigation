@@ -38,12 +38,11 @@ class DownloadDataFragment : Fragment() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             var i = 0
-            while (i <= 100) {
+            while (i++ <= 100) {
                 delay(20)
                 withContext(Dispatchers.Main) {
                     binding.progressBar.progress = i
                 }
-                i++
             }
             withContext(Dispatchers.Main) {
                 findNavController().navigate(DownloadDataFragmentDirections.actionWelcomeFragmentToAppContentFragment())

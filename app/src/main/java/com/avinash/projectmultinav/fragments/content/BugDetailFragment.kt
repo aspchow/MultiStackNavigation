@@ -60,8 +60,6 @@ class BugDetailFragment : Fragment() {
                             adapter.submitList(it.linkedTasks)
 
                         }
-
-
                     }
         }
 
